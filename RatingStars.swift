@@ -22,32 +22,33 @@ struct RatingStars: View {
     var body: some View {
         HStack()
         {
-            Text(String(rating))
-            ForEach(0..<wholeNum, id: \.self) { i in
-                Image("star")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20.0, height: 20.0, alignment: .top)
-                    .foregroundColor(.yellow)
-            }
-            if(remainderNum > 0.75){
-                Image("star")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20.0, height: 20.0, alignment: .top)
-                    .foregroundColor(.yellow)
-            }
-            
-            if(remainderNum > 0.25 && remainderNum < 0.75) {
-                Image("star_half")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20.0, height: 20.0, alignment: .top)
-                    .foregroundColor(.yellow)
+            if(rating > 0){
+                Text(String(rating))
+                ForEach(0..<wholeNum, id: \.self) { i in
+                    Image("star")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20.0, height: 20.0, alignment: .top)
+                        .foregroundColor(.yellow)
+                }
+                if(remainderNum > 0.75){
+                    Image("star")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20.0, height: 20.0, alignment: .top)
+                        .foregroundColor(.yellow)
+                }
+                
+                if(remainderNum > 0.25 && remainderNum < 0.75) {
+                    Image("star_half")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20.0, height: 20.0, alignment: .top)
+                        .foregroundColor(.yellow)
+                }
+            } else {
+                Text("No rating")
             }
         }
     }
 }
-
-
-
