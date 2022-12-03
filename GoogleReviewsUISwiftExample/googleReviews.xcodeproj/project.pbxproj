@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2093FF4293BF04F00A4C9D1 /* GoogleReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2093FF3293BF04F00A4C9D1 /* GoogleReviews.swift */; };
+		C2093FF6293BF07F00A4C9D1 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2093FF5293BF07F00A4C9D1 /* ReviewsView.swift */; };
+		C2093FF8293BF0E400A4C9D1 /* StarsReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2093FF7293BF0E400A4C9D1 /* StarsReview.swift */; };
+		C2093FFA293BF3A900A4C9D1 /* GoogleReviewsData.json in Resources */ = {isa = PBXBuildFile; fileRef = C2093FF9293BF3A900A4C9D1 /* GoogleReviewsData.json */; };
 		C2D45FA8292D90EA00744586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FA7292D90EA00744586 /* AppDelegate.swift */; };
 		C2D45FAA292D90EA00744586 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FA9292D90EA00744586 /* SceneDelegate.swift */; };
 		C2D45FAC292D90EA00744586 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FAB292D90EA00744586 /* ViewController.swift */; };
@@ -14,11 +18,14 @@
 		C2D45FB1292D90EB00744586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D45FB0292D90EB00744586 /* Assets.xcassets */; };
 		C2D45FB4292D90EB00744586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D45FB2292D90EB00744586 /* LaunchScreen.storyboard */; };
 		C2D45FBC292D913F00744586 /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FBB292D913F00744586 /* ApiCall.swift */; };
-		C2D45FBE292D91DE00744586 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FBD292D91DE00744586 /* Review.swift */; };
-		C2D45FC0292D92E900744586 /* RatingStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FBF292D92E800744586 /* RatingStars.swift */; };
+		C2D45FBE292D91DE00744586 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D45FBD292D91DE00744586 /* ReviewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2093FF3293BF04F00A4C9D1 /* GoogleReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleReviews.swift; sourceTree = "<group>"; };
+		C2093FF5293BF07F00A4C9D1 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
+		C2093FF7293BF0E400A4C9D1 /* StarsReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsReview.swift; sourceTree = "<group>"; };
+		C2093FF9293BF3A900A4C9D1 /* GoogleReviewsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleReviewsData.json; sourceTree = "<group>"; };
 		C2D45FA4292D90EA00744586 /* googleReviews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = googleReviews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D45FA7292D90EA00744586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2D45FA9292D90EA00744586 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,8 +35,7 @@
 		C2D45FB3292D90EB00744586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2D45FB5292D90EB00744586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2D45FBB292D913F00744586 /* ApiCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
-		C2D45FBD292D91DE00744586 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
-		C2D45FBF292D92E800744586 /* RatingStars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingStars.swift; sourceTree = "<group>"; };
+		C2D45FBD292D91DE00744586 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,16 +68,19 @@
 		C2D45FA6292D90EA00744586 /* googleReviews */ = {
 			isa = PBXGroup;
 			children = (
-				C2D45FBF292D92E800744586 /* RatingStars.swift */,
 				C2D45FA7292D90EA00744586 /* AppDelegate.swift */,
 				C2D45FA9292D90EA00744586 /* SceneDelegate.swift */,
 				C2D45FAB292D90EA00744586 /* ViewController.swift */,
-				C2D45FBD292D91DE00744586 /* Review.swift */,
+				C2D45FBD292D91DE00744586 /* ReviewData.swift */,
+				C2093FF3293BF04F00A4C9D1 /* GoogleReviews.swift */,
+				C2093FF7293BF0E400A4C9D1 /* StarsReview.swift */,
+				C2093FF5293BF07F00A4C9D1 /* ReviewsView.swift */,
 				C2D45FAD292D90EA00744586 /* Main.storyboard */,
 				C2D45FBB292D913F00744586 /* ApiCall.swift */,
 				C2D45FB0292D90EB00744586 /* Assets.xcassets */,
 				C2D45FB2292D90EB00744586 /* LaunchScreen.storyboard */,
 				C2D45FB5292D90EB00744586 /* Info.plist */,
+				C2093FF9293BF3A900A4C9D1 /* GoogleReviewsData.json */,
 			);
 			path = googleReviews;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 			files = (
 				C2D45FB4292D90EB00744586 /* LaunchScreen.storyboard in Resources */,
 				C2D45FB1292D90EB00744586 /* Assets.xcassets in Resources */,
+				C2093FFA293BF3A900A4C9D1 /* GoogleReviewsData.json in Resources */,
 				C2D45FAF292D90EA00744586 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,12 +157,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D45FBE292D91DE00744586 /* Review.swift in Sources */,
+				C2093FF4293BF04F00A4C9D1 /* GoogleReviews.swift in Sources */,
+				C2D45FBE292D91DE00744586 /* ReviewData.swift in Sources */,
 				C2D45FAC292D90EA00744586 /* ViewController.swift in Sources */,
 				C2D45FA8292D90EA00744586 /* AppDelegate.swift in Sources */,
+				C2093FF6293BF07F00A4C9D1 /* ReviewsView.swift in Sources */,
 				C2D45FBC292D913F00744586 /* ApiCall.swift in Sources */,
-				C2D45FC0292D92E900744586 /* RatingStars.swift in Sources */,
 				C2D45FAA292D90EA00744586 /* SceneDelegate.swift in Sources */,
+				C2093FF8293BF0E400A4C9D1 /* StarsReview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

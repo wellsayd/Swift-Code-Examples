@@ -9,50 +9,70 @@ import UIKit
 import SwiftUI
 
 class ViewController: UIViewController {
-
+    
+    var googleApiKey = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         Task {
-            let reviewData = await self.getGooglePlacesId()
-            let rating:Double = reviewData.rating
-            let wholeNum:Int = Int(reviewData.rating.rounded(.towardZero))
-            let remainderNum: Double = reviewData.rating.truncatingRemainder(dividingBy: 1)
-            let ratingStars = RatingStars(rating: rating, wholeNum: wholeNum, remainderNum: remainderNum, reviews: reviewData.reviews)
-            let child = UIHostingController(rootView: ratingStars)
-            child.view.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(child.view)
-            child.view.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -10).isActive = true
-            child.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 18).isActive = true
+            if let reviewData = await self.getGoogleReviews() {
+                self.setReviewSubview(content: GoogleReviews(reviewData: reviewData))
+            } else {
+                self.setReviewSubview(content: NoReviews())
+            }
         }
         
-        
     }
 
     
-    func getGooglePlacesId() async -> (rating: Double, reviews: [Reviews]) {
+    func getGoogleReviews() async -> ResultData? {
         
+        var data: (status: ApiStatus,  data: Any)
+        
+        if(googleApiKey != "") {
             let apiCall = ApiCall()
-            let data = try await apiCall.makeCall("https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ7aZjk3uVuokRV-RK8J0MIOw&key=" + yourGoogleApiKeyHere)
+            data = await apiCall.makeCall("https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ7aZjk3uVuokRV-RK8J0MIOw&key=" + googleApiKey)
 
-            if(data.status == .success) {
-                do {
-                    let json = try JSONDecoder().decode(Result.self, from: data.data as! Data)
-                    return  (rating: json.result.rating, reviews: json.result.reviews)
-                } catch {
-                    return (rating: 0, reviews: [])
-                }
-                          
+        } else {
+            data = readLocalJSONFile()
+        }
+
+        if(data.status == .success) {
+            do {
+                let json = try JSONDecoder().decode(ResultData.self, from: data.data as! Data)
+                return  (json)
+            } catch {
+                return (nil)
             }
-
-        
-        
-        return (rating: 0, reviews: [])
-
+                      
+        }
+        return (nil)
+    }
+    
+    func setReviewSubview(content: some View){
+        let child = UIHostingController(rootView: content)
+        child.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(child.view)
+        child.view.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -10).isActive = true
+        child.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 18).isActive = true
     }
     
     
-
+    func readLocalJSONFile() -> (status: ApiStatus,  data: Any)  {
+        do {
+            if let filePath = Bundle.main.path(forResource: "./GoogleReviewsData", ofType: "json") {
+                let fileUrl = URL(fileURLWithPath: filePath)
+                let data = try Data(contentsOf: fileUrl)
+                return (status: ApiStatus.success,  data: data)
+            }
+        } catch {
+            return (status: ApiStatus.error,  data: "")
+        }
+        return (status: ApiStatus.error,  data: "")
+    }
+    
+    
 }
 

@@ -1,6 +1,6 @@
 //
 //  Api.swift
-//  VB ParkFinder
+//  googleReviews
 //
 //  Created by bwells on 11/3/22.
 //
@@ -16,9 +16,7 @@ import UIKit
 /// - noResults: api no results
 public enum ApiStatus {
     case success
-    case noConnection
     case error
-    case noResults
 }
 
 /**
@@ -50,7 +48,6 @@ class ApiCall {
                 
             }
             
-        
             return (status: ApiStatus.success,  data: data)
             
         } catch {
